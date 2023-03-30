@@ -46,14 +46,16 @@ const users: User = {
 
 userRouter.get("/", (req: Request, res: Response) => {
     try {
-        res.status(200).json({ ...users })
+        setTimeout(() => {
+            res.status(200).json({ ...users })
+        }, 1000)
     } catch (err) { throw err }
 })
 
 userRouter.get("/:userId", (req: Request, res: Response) => {
     console.log("IN HERE");
     try {
-        const uid = req.params.userId
+        const uid: string = req.params.userId
         console.log("UID: ", uid);
         res.status(200).json({ user: users[uid] })
     } catch (err) { throw err }

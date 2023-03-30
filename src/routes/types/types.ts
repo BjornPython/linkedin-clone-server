@@ -15,3 +15,13 @@ export interface User {
         bannerURL: string
     }
 }
+
+export interface Jobs {
+    [key: string]: {
+        company: string,
+        title: string,
+        description: string,
+        location: string,
+        DpURL: string
+    }
+}

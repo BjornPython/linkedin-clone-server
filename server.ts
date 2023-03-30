@@ -17,4 +17,7 @@ app.use("/posts", post)
 const user = require("./src/routes/userRoutes.ts")
 app.use("/users", user)
 
+const jobs = require("./src/routes/jobsRoutes.ts")
+app.use("/jobs", jobs)
+
 app.listen(8000)
