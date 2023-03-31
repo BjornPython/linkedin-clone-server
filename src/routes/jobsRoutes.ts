@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { Jobs } from "./types/types"
+import { Jobs } from "../types/types"
 const jobsExpress = require("express")
 const jobsRouter = jobsExpress.Router()
 

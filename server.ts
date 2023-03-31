@@ -4,7 +4,7 @@ import cors from "cors";
 const app = express()
 
 app.use(cors({
-    origin: "http://localhost:3000" // Replace with the origin you want to allow
+    origin: "http://localhost:3000" // Replace with enc variable...
 }));
 
 app.get("/", (req: any, res: any) => {
@@ -19,5 +19,9 @@ app.use("/users", user)
 
 const jobs = require("./src/routes/jobsRoutes.ts")
 app.use("/jobs", jobs)
+
+const notifs = require("./src/routes/notificationsRoutes.ts")
+app.use("/notifs", notifs)
+
 
 app.listen(8000)

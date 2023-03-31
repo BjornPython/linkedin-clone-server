@@ -4,7 +4,6 @@ export interface Post {
         imageURL: string,
         caption: string
     }
-
 }
 
 export interface User {

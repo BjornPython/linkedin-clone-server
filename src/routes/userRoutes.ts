@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 const userExpress = require("express")
 const userRouter = userExpress.Router()
-import { User } from "./types/types"
+import { User } from "../types/types"
 
 
 const users: User = {
@@ -46,18 +46,26 @@ const users: User = {
 
 userRouter.get("/", (req: Request, res: Response) => {
     try {
-        setTimeout(() => {
-            res.status(200).json({ ...users })
-        }, 1000)
+        res.status(200).json({ ...users })
     } catch (err) { throw err }
 })
 
-userRouter.get("/:userId", (req: Request, res: Response) => {
-    console.log("IN HERE");
+userRouter.get("/ids/:userId", (req: Request, res: Response) => {
     try {
         const uid: string = req.params.userId
-        console.log("UID: ", uid);
         res.status(200).json({ user: users[uid] })
+    } catch (err) { throw err }
+})
+
+userRouter.get("/chatsample", (req: Request, res: Response) => {
+    console.log("IN CHAT SAMPLE");
+    try {
+        const chats = Object.entries(users).map(data => {
+            const userId = data[0]
+            const userInfo = data[1]
+            return [userId, { ...userInfo }]
+        })
+        res.status(200).json(chats)
     } catch (err) { throw err }
 })
 

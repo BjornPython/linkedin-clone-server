@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 const postsExpress = require("express")
 const postsRouter = postsExpress.Router()
-import { Post } from "./types/types"
+import { Post } from "../types/types"
 
 const posts: Post = {
     "postId1": {
@@ -35,8 +35,6 @@ postsRouter.get("/", (req: Request, res: Response) => {
 postsRouter.get("/post/:postId", (req: Request, res: Response) => {
     try {
         const { postId } = req.params
-        console.log("POST ID RECEIVED: ", postId);
-        console.log("RETURNING: ", { postInfo: posts[postId] });
         res.status(200).json({ postInfo: posts[postId] })
     } catch (err) { throw err }
 })
