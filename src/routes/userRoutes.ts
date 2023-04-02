@@ -50,6 +50,13 @@ userRouter.get("/", (req: Request, res: Response) => {
     } catch (err) { throw err }
 })
 
+userRouter.get("/suggestions", (req: Request, res: Response) => {
+    try {
+        const { user4, user5, user6 } = users
+        res.status(200).json({ user4, user5, user6 })
+    } catch (err) { throw err }
+})
+
 userRouter.get("/ids/:userId", (req: Request, res: Response) => {
     try {
         const uid: string = req.params.userId
