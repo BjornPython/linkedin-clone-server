@@ -4,7 +4,7 @@ import cors from "cors";
 const app = express()
 
 app.use(cors({
-    origin: "http://localhost:3000" // Replace with enc variable...
+    origin: "https://linkedin-ui-clone-nathan.vercel.app"
 }));
 
 app.get("/", (req: any, res: any) => {
